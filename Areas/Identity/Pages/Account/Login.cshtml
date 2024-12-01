@@ -2,7 +2,7 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in / Registeration ";
+    ViewData["Title"] = "Log in / Registration ";
 }
 
 <h4>@ViewData["Title"]</h4>
@@ -99,7 +99,7 @@
     <div class="right-section">
         <form id="account" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <h3>Login / Registeration</h3>
+            <h3>Login / Registration</h3>
             <div class="form-row">
                 <label>Username</label>
                 <input asp-for="Input.UserName" type="UserName" class="form-control" />
@@ -109,7 +109,7 @@
                 <input asp-for="Input.Password" type="password" class="form-control" />
             </div>
 
-            <button id="login-submit" type="submit" class="btn btn-primary btn-lg ">Log in</button> <a class="btn btn-primary btn-lg" style="width :100%; background-color:#30b3f0;  " href="/Identity/Account/Register">Registeration</a>
+            <button id="login-submit" type="submit" class="btn btn-primary btn-lg ">Log in</button> <a class="btn btn-primary btn-lg" style="width :100%; background-color:#30b3f0;  " href="/Identity/Account/Register">Registration</a>
         </form>
     </div>
 </div>
