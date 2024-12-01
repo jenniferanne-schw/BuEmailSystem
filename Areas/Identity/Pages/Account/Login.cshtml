@@ -1,0 +1,119 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in / Registeration ";
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<style>
+    h4 {
+        margin-left: 50px;
+    }
+    body {
+        background-image: url('/images/background.jpg'); /* เปลี่ยนเส้นทางให้ตรงกับที่เก็บไฟล์ */
+        background-size: cover; /* ทำให้ภาพครอบคลุมทั้งหน้าจอ */
+        background-position: center center; /* จัดตำแหน่งภาพกลาง */
+        background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
+        color: white; /* เปลี่ยนสีข้อความให้เด่นขึ้นเมื่อใช้พื้นหลังเข้ม */ /* Change this to any color */
+    }
+
+    .welcome-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 10px;
+
+
+    }
+    .container {
+        display: flex;
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        justify-content: center;
+    }
+
+    .left-section {
+        
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        padding: 50px;
+        text-align: center;
+    }
+
+    .right-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        background-color: #101010;
+    }
+
+    h1, h2 {
+        font-weight: bold;
+        color: white;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    .form-row {
+        margin-bottom: 20px;
+    }
+
+
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #00d9ff;
+        border: none;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        margin-bottom:10px;
+    }
+
+        button:hover {
+            background-color: #008ecf;
+        }
+</style>
+    
+<div class="container">
+    <div class="left-section">
+        <h1>WELCOME!</h1>
+        <h2>JOIN US AND ENJOY!</h2>
+        <img src="/images/download.png" alt="Welcome Image" class="welcome-image" />
+    </div>
+    <div class="right-section">
+        <form id="account" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <h3>Login / Registeration</h3>
+            <div class="form-row">
+                <label>Username</label>
+                <input asp-for="Input.UserName" type="UserName" class="form-control" />
+            </div>
+            <div class="form-row">
+                <label>Password</label>
+                <input asp-for="Input.Password" type="password" class="form-control" />
+            </div>
+
+            <button id="login-submit" type="submit" class="btn btn-primary btn-lg ">Log in</button> <a class="btn btn-primary btn-lg" style="width :100%; background-color:#30b3f0;  " href="/Identity/Account/Register">Registeration</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

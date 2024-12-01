@@ -1,0 +1,165 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registeration";
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<style>
+    h3{
+        align-items: center;
+    }
+    h4 {
+        margin-left: 80px;
+    }
+    body {
+        background-image: url('/images/background.jpg'); /* เปลี่ยนเส้นทางให้ตรงกับที่เก็บไฟล์ */
+        background-size: cover; /* ทำให้ภาพครอบคลุมทั้งหน้าจอ */
+        background-position: center center; /* จัดตำแหน่งภาพกลาง */
+        background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
+        color: white; /* เปลี่ยนสีข้อความให้เด่นขึ้นเมื่อใช้พื้นหลังเข้ม */ /* Change this to any color */
+    }
+
+    .welcome-image {
+        max-width: 80%;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+    .form-row {
+        padding-bottom: 20px; /* Adds space between rows */
+    }
+
+    /* Adjust input field margin */
+    .form-floating input {
+        margin-bottom: 15px; /* Adjust the spacing between input fields and validation text */
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        justify-content: center;
+    }
+
+    .left-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        padding: 50px;
+        text-align: center;
+    }
+
+    .right-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        background-color: #101010;
+
+    }
+
+    td {
+        padding-bottom: 15px; 
+        }
+
+        label {
+            display: block; 
+            margin-bottom: 5px; 
+        }
+
+        input {
+            width: 100%; 
+            padding: 8px; 
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #00d9ff;
+        border: none;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+        button:hover {
+            background-color: #008ecf;
+        }
+</style>
+<div class="container">
+    <div class="left-section">
+        <h1>WELCOME!</h1>
+        <h2>JOIN US AND ENJOY!</h2>
+        <img src="/images/download.png" alt="Welcome Image" class="welcome-image" />
+    </div>
+    <div class="right-section">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <h3>Registeration</h3>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <label asp-for="Input.FirstName">First Name</label>
+                        <input asp-for="Input.FirstName" class="form" autocomplete="firstname" aria-required="true" />
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label asp-for="Input.LastName">Last Name</label>
+                        <input asp-for="Input.LastName" class="form" autocomplete="lastname" aria-required="true" />
+                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label asp-for="Input.MobilePhone">Mobile Phone</label>
+                        <input asp-for="Input.MobilePhone" class="form" autocomplete="mobilephone" aria-required="true" />
+                        <span asp-validation-for="Input.MobilePhone" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label asp-for="Input.UserName">Username</label>
+                        <input asp-for="Input.UserName" class="form" autocomplete="username" aria-required="true" />
+                        <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label asp-for="Input.Password">Password</label>
+                        <input asp-for="Input.Password" class="form" autocomplete="new-password" aria-required="true" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button id="registerSubmit" type="submit" class="btn btn-primary">Register</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

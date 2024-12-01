@@ -1,0 +1,32 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Log in Complete";
+}
+<style>
+    body {
+        background-image: url('/images/background.jpg'); /* เปลี่ยนเส้นทางให้ตรงกับที่เก็บไฟล์ */
+        background-size: cover; /* ทำให้ภาพครอบคลุมทั้งหน้าจอ */
+        background-position: center center; /* จัดตำแหน่งภาพกลาง */
+        background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
+        color: white; /* เปลี่ยนสีข้อความให้เด่นขึ้นเมื่อใช้พื้นหลังเข้ม */ /* Change this to any color */
+    }
+
+</style>
+
+<header>
+    <h1>@ViewData["Title"]</h1>
+    @{
+        if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "/Index" })" method="post">
+                <a class="btn btn-primary btn-lg" style="margin-top: 50px; margin-bottom: 50px;" href="/Index">click here to continue</a>
+             
+            </form>
+        }
+        else
+        {
+            <p>You have successfully logged out of the application.</p>
+        }
+    }
+</header>

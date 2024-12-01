@@ -1,0 +1,29 @@
+﻿@page
+@model ViewEmailModel
+@{
+    ViewData["Title"] = "View Email";
+}
+<style>
+    body {
+        background-image: url('/images/background.jpg'); /* เปลี่ยนเส้นทางให้ตรงกับที่เก็บไฟล์ */
+        background-size: cover; /* ทำให้ภาพครอบคลุมทั้งหน้าจอ */
+        background-position: center center; /* จัดตำแหน่งภาพกลาง */
+        background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
+        color: white; /* เปลี่ยนสีข้อความให้เด่นขึ้นเมื่อใช้พื้นหลังเข้ม */ /* Change this to any color */
+    }
+</style>
+
+<div class="email-view">
+    <h2>Subject : @Model.EmailSubject</h2>
+    <p><strong>From:</strong> @Model.EmailSender</p>
+    <p><strong>Date:</strong> @Model.EmailDate</p>
+
+    <div class="email-message">
+        <p><strong>Message:</strong></p>
+        <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+            <pre style="white-space: pre-wrap; word-wrap: break-word;">@Model.EmailMessage</pre>
+        </div>
+    </div>
+
+    <a class="btn btn-primary btn-sm" href="/Index">Back to Inbox</a>
+</div>
